@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 import 'package:meesho_clone_app/view/home_screen/home_screen.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
@@ -20,6 +21,9 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
     Container(
       color: Colors.blue,
     ),
+    Container(
+      color: Colors.green,
+    ),
   ];
   int index = 0;
   @override
@@ -34,46 +38,42 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
-                icon: Image.asset(
-                  "assets/images/home_disabled.png",
-                  height: 50,
+                icon: Icon(Icons.home_outlined),
+                activeIcon: Icon(
+                  Icons.home,
+                  color: ColorConstants.primaryColor,
                 ),
-                activeIcon: Image.asset(
-                  "assets/images/home_enabled.png",
-                  height: 50,
-                ),
-                label: "Home"),
+                label: 'Home'),
             BottomNavigationBarItem(
-                icon: Image.asset(
-                  "assets/images/home_disabled.png",
-                  height: 50,
+                icon: Icon(Icons.category_outlined),
+                activeIcon: Icon(
+                  Icons.category,
+                  color: ColorConstants.primaryColor,
                 ),
-                activeIcon: Image.asset(
-                  "assets/images/home_enabled.png",
-                  height: 50,
-                ),
-                label: ''),
+                label: 'Category'),
             BottomNavigationBarItem(
-                icon: Image.asset(
-                  "assets/images/home_disabled.png",
-                  height: 50,
+                icon: Icon(Icons.shopping_cart_outlined),
+                activeIcon: Icon(
+                  Icons.shopping_cart,
+                  color: ColorConstants.primaryColor,
                 ),
-                activeIcon: Image.asset(
-                  "assets/images/home_enabled.png",
-                  height: 50,
-                ),
-                label: ''),
+                label: 'My Orders'),
             BottomNavigationBarItem(
-                icon: Image.asset(
-                  "assets/images/home_disabled.png",
-                  height: 50,
+                icon: Icon(Icons.help_center_outlined),
+                activeIcon: Icon(
+                  Icons.help_center,
+                  color: ColorConstants.primaryColor,
                 ),
-                activeIcon: Image.asset(
-                  "assets/images/home_enabled.png",
-                  height: 50,
+                label: 'Help'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle_outlined),
+                activeIcon: Icon(
+                  Icons.account_circle,
+                  color: ColorConstants.primaryColor,
                 ),
-                label: ''),
+                label: 'Account'),
           ]),
+      body: screens[index],
     );
   }
 }
