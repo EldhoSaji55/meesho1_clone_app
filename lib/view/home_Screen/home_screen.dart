@@ -1,7 +1,9 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:meesho_clone_app/dummy_db.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 import 'package:meesho_clone_app/utils/constants/image_constants.dart';
+import 'package:meesho_clone_app/view/Global_widgets/CarousalWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/GlobalCircleAvatar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -23,6 +25,22 @@ class HomeScreen extends StatelessWidget {
 
             //Title bar Section -Showing return policy, COD, Scrollable Circle avatar
             _TitleBannerSection(),
+
+            //Carousal Banner
+            SizedBox(height: 15),
+            CarouselSlider(
+                items: [
+                  Carousalwidget(imageUrl: ImageConstants.carosalBanner_1),
+                  Carousalwidget(imageUrl: ImageConstants.carosalBanner_2),
+                  Carousalwidget(imageUrl: ImageConstants.carosalBanner_3),
+                  Carousalwidget(imageUrl: ImageConstants.carosalBanner_4),
+                  Carousalwidget(imageUrl: ImageConstants.carosalBanner_5),
+                ],
+                options: CarouselOptions(
+                    viewportFraction: 0.7,
+                    aspectRatio: 16 / 6,
+                    enableInfiniteScroll: false,
+                    padEnds: false))
           ],
         ),
       ),
