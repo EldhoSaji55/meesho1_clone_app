@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:meesho_clone_app/dummy_db.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 import 'package:meesho_clone_app/utils/constants/image_constants.dart';
+import 'package:meesho_clone_app/view/Global_widgets/GlobalCircleAvatar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,55 +11,92 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        //AppBar Section
         appBar: _appBarSection(),
         body: Column(
           children: [
+            // Search Bar Section
             _SearchBarSection(),
             SizedBox(
               height: 5,
             ),
-            _TitleBannerSection()
+
+            //Title bar Section -Showing return policy, COD, Scrollable Circle avatar
+            _TitleBannerSection(),
           ],
         ),
       ),
     );
   }
 
-  Container _TitleBannerSection() {
-    return Container(
-      width: double.maxFinite,
-      color: ColorConstants.Lavender,
-      padding: EdgeInsets.all(12),
-      child: Container(
-        padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-            color: ColorConstants.mainWhite,
-            borderRadius: BorderRadius.circular(10)),
-        child: IntrinsicHeight(
-          child: Row(
-            children: [
-              _titleWidget(
-                  text: "7 Days \nEasy Return",
-                  iconlink: ImageConstants.returnIcon),
-              VerticalDivider(
-                thickness: 1,
-                indent: 8,
-                endIndent: 8,
+  _TitleBannerSection() {
+    return Column(
+      children: [
+        Container(
+          width: double.maxFinite,
+          color: ColorConstants.Lavender,
+          padding: EdgeInsets.all(12),
+          child: Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: ColorConstants.mainWhite,
+                borderRadius: BorderRadius.circular(10)),
+            child: IntrinsicHeight(
+              child: Row(
+                children: [
+                  _titleWidget(
+                      text: "7 Days \nEasy Return",
+                      iconlink: ImageConstants.returnIcon),
+                  VerticalDivider(
+                    thickness: 1,
+                    indent: 8,
+                    endIndent: 8,
+                  ),
+                  _titleWidget(
+                      text: "Cash on \nDelivery",
+                      iconlink: ImageConstants.rupeeIcon),
+                  VerticalDivider(
+                    thickness: 1,
+                    indent: 8,
+                    endIndent: 8,
+                  ),
+                  _titleWidget(
+                      text: "Lowest \nPrice",
+                      iconlink: ImageConstants.pricetagIcon)
+                ],
               ),
-              _titleWidget(
-                  text: "Cash on \nDelivery",
-                  iconlink: ImageConstants.rupeeIcon),
-              VerticalDivider(
-                thickness: 1,
-                indent: 8,
-                endIndent: 8,
-              ),
-              _titleWidget(
-                  text: "Lowest \nPrice", iconlink: ImageConstants.pricetagIcon)
-            ],
+            ),
           ),
         ),
-      ),
+        SizedBox(
+          height: 5,
+        ),
+        Container(
+          height: 79,
+          child: ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 12),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                if (index == 0) {
+                  return Globalcircleavatar(
+                      fetchassetimage: true,
+                      bottomText: "Category",
+                      imageLocation: ImageConstants.categoryIcon);
+                } else {
+                  index = index - 1;
+                  return Globalcircleavatar(
+                    fetchassetimage: false,
+                    bottomText: DummyDb.CircleAvatarList[index]["text"],
+                    imageLocation: DummyDb.CircleAvatarList[index]["imageurl"],
+                  );
+                }
+              },
+              separatorBuilder: (context, index) => SizedBox(
+                    width: 15,
+                  ),
+              itemCount: DummyDb.CircleAvatarList.length),
+        )
+      ],
     );
   }
 
