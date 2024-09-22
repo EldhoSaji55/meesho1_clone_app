@@ -8,12 +8,13 @@ class Carousalwidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(1),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: Image(
           image: AssetImage(imageUrl),
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
         ),
       ),
     );

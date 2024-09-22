@@ -11,4 +11,7 @@ class ImageConstants {
   static const String carosalBanner_3 = "assets/images/13185406_5092393.jpg";
   static const String carosalBanner_4 = "assets/images/15169224_5565175.jpg";
   static const String carosalBanner_5 = "assets/images/40486493_8852975.jpg";
+
+  // ---Home Page: Daily Deal Image
+  static const String dailyDealImage = "assets/images/dailydeal.jpg";
 }

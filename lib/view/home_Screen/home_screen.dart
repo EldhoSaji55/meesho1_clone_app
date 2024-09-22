@@ -19,22 +19,55 @@ class HomeScreen extends StatelessWidget {
           children: [
             // Search Bar Section
             _SearchBarSection(),
-            SizedBox(
-              height: 5,
-            ),
 
             //Title bar Section -Showing return policy, COD, Scrollable Circle avatar
             _TitleBannerSection(),
 
             //Carousal Banner
-            SizedBox(height: 15),
             _HomepageCarousel(),
-            SizedBox(
-              height: 10,
-            ),
+
+// Daily Deals Section
+            _DailyDealsSection()
           ],
         ),
       ),
+    );
+  }
+
+  _DailyDealsSection() {
+    return Column(
+      children: [
+        Container(
+          height: 6,
+          width: double.infinity,
+          color: ColorConstants.lightGrey,
+        ),
+        Container(
+          width: double.infinity,
+          height: 40,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+          child: Image.asset(
+            ImageConstants.dailyDealImage,
+            fit: BoxFit.fitWidth,
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Row(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Daily Deals",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                )
+              ],
+            )
+          ],
+        )
+      ],
     );
   }
 
@@ -104,7 +137,8 @@ class HomeScreen extends StatelessWidget {
                     width: 15,
                   ),
               itemCount: DummyDb.CircleAvatarList.length),
-        )
+        ),
+        SizedBox(height: 15),
       ],
     );
   }
@@ -160,44 +194,52 @@ class HomeScreen extends StatelessWidget {
   }
 
   _SearchBarSection() {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: SizedBox(
-        height: 45,
-        child: TextField(
-            decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: ColorConstants.lightGrey)),
-          disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: ColorConstants.lightGrey)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: ColorConstants.lightGrey)),
-          hintText: "Search by Keyword or Product ID",
-          hintStyle: TextStyle(fontSize: 15, color: ColorConstants.mainGrey),
-          prefixIcon: Icon(
-            Icons.search,
-            color: ColorConstants.mainGrey,
-          ),
-          suffixIcon: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                Icons.mic,
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: SizedBox(
+            height: 45,
+            child: TextField(
+                decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: ColorConstants.lightGrey)),
+              disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: ColorConstants.lightGrey)),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: ColorConstants.lightGrey)),
+              hintText: "Search by Keyword or Product ID",
+              hintStyle:
+                  TextStyle(fontSize: 15, color: ColorConstants.mainGrey),
+              prefixIcon: Icon(
+                Icons.search,
                 color: ColorConstants.mainGrey,
               ),
-              SizedBox(width: 10),
-              Icon(
-                Icons.camera_alt,
-                color: ColorConstants.mainGrey,
+              suffixIcon: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.mic,
+                    color: ColorConstants.mainGrey,
+                  ),
+                  SizedBox(width: 10),
+                  Icon(
+                    Icons.camera_alt,
+                    color: ColorConstants.mainGrey,
+                  ),
+                  SizedBox(width: 15),
+                ],
               ),
-              SizedBox(width: 15),
-            ],
+            )),
           ),
-        )),
-      ),
+        ),
+        SizedBox(
+          height: 5,
+        ),
+      ],
     );
   }
 }
@@ -233,13 +275,14 @@ class _HomepageCarouselState extends State<_HomepageCarousel> {
                   setState(() {});
                 },
                 autoPlay: true,
+                enlargeFactor: 1,
                 autoPlayCurve: Curves.linear,
                 autoPlayInterval: Duration(seconds: 4),
                 autoPlayAnimationDuration: Duration(milliseconds: 800),
-                viewportFraction: 0.7,
-                aspectRatio: 16 / 6,
+                viewportFraction: 0.8,
+                aspectRatio: 2.35 / 1,
                 enableInfiniteScroll: false,
-                padEnds: false)),
+                padEnds: true)),
         SizedBox(
           height: 10,
         ),
@@ -261,7 +304,10 @@ class _HomepageCarouselState extends State<_HomepageCarousel> {
               ),
             ]
           ],
-        )
+        ),
+        SizedBox(
+          height: 10,
+        ),
       ],
     );
   }
