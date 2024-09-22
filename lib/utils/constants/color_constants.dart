@@ -8,4 +8,5 @@ class ColorConstants {
   static const Color Lavender = Color(0xffFCECF7);
   static const Color mainWhite = Color(0xffFFFFFF);
   static const Color mainGrey = Colors.grey;
+  static const Color lightGrey = Color(0xffE5E4E2);
 }

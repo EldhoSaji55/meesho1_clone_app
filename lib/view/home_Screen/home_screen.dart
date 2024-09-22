@@ -28,19 +28,10 @@ class HomeScreen extends StatelessWidget {
 
             //Carousal Banner
             SizedBox(height: 15),
-            CarouselSlider(
-                items: [
-                  Carousalwidget(imageUrl: ImageConstants.carosalBanner_1),
-                  Carousalwidget(imageUrl: ImageConstants.carosalBanner_2),
-                  Carousalwidget(imageUrl: ImageConstants.carosalBanner_3),
-                  Carousalwidget(imageUrl: ImageConstants.carosalBanner_4),
-                  Carousalwidget(imageUrl: ImageConstants.carosalBanner_5),
-                ],
-                options: CarouselOptions(
-                    viewportFraction: 0.7,
-                    aspectRatio: 16 / 6,
-                    enableInfiniteScroll: false,
-                    padEnds: false))
+            _HomepageCarousel(),
+            SizedBox(
+              height: 10,
+            ),
           ],
         ),
       ),
@@ -171,33 +162,107 @@ class HomeScreen extends StatelessWidget {
   _SearchBarSection() {
     return Padding(
       padding: const EdgeInsets.all(12.0),
-      child: TextField(
-          decoration: InputDecoration(
-        enabledBorder:
-            OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-        disabledBorder: UnderlineInputBorder(),
-        hintText: "Search by Keyword or Product ID",
-        hintStyle: TextStyle(fontSize: 15),
-        prefixIcon: Icon(
-          Icons.search,
-          color: ColorConstants.Iconblue,
+      child: SizedBox(
+        height: 45,
+        child: TextField(
+            decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: ColorConstants.lightGrey)),
+          disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: ColorConstants.lightGrey)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: ColorConstants.lightGrey)),
+          hintText: "Search by Keyword or Product ID",
+          hintStyle: TextStyle(fontSize: 15, color: ColorConstants.mainGrey),
+          prefixIcon: Icon(
+            Icons.search,
+            color: ColorConstants.mainGrey,
+          ),
+          suffixIcon: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                Icons.mic,
+                color: ColorConstants.mainGrey,
+              ),
+              SizedBox(width: 10),
+              Icon(
+                Icons.camera_alt,
+                color: ColorConstants.mainGrey,
+              ),
+              SizedBox(width: 15),
+            ],
+          ),
+        )),
+      ),
+    );
+  }
+}
+
+class _HomepageCarousel extends StatefulWidget {
+  _HomepageCarousel({
+    super.key,
+  });
+
+  @override
+  State<_HomepageCarousel> createState() => _HomepageCarouselState();
+}
+
+class _HomepageCarouselState extends State<_HomepageCarousel> {
+  int _currentindex = 0;
+  List<Widget> CarousalList = [
+    Carousalwidget(imageUrl: ImageConstants.carosalBanner_1),
+    Carousalwidget(imageUrl: ImageConstants.carosalBanner_2),
+    Carousalwidget(imageUrl: ImageConstants.carosalBanner_3),
+    Carousalwidget(imageUrl: ImageConstants.carosalBanner_4),
+    Carousalwidget(imageUrl: ImageConstants.carosalBanner_5),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CarouselSlider(
+            items: CarousalList,
+            options: CarouselOptions(
+                onPageChanged: (index, reason) {
+                  _currentindex = index;
+                  setState(() {});
+                },
+                autoPlay: true,
+                autoPlayCurve: Curves.linear,
+                autoPlayInterval: Duration(seconds: 4),
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                viewportFraction: 0.7,
+                aspectRatio: 16 / 6,
+                enableInfiniteScroll: false,
+                padEnds: false)),
+        SizedBox(
+          height: 10,
         ),
-        suffixIcon: Row(
-          mainAxisSize: MainAxisSize.min,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.mic,
-              color: ColorConstants.Iconblue,
-            ),
-            SizedBox(width: 10),
-            Icon(
-              Icons.camera_alt,
-              color: ColorConstants.Iconblue,
-            ),
-            SizedBox(width: 15),
+            for (int i = 0; i < CarousalList.length; i++) ...[
+              Container(
+                height: 6,
+                width: (_currentindex == i) ? 20 : 12,
+                decoration: BoxDecoration(
+                    color: (_currentindex == i)
+                        ? ColorConstants.primaryColor
+                        : ColorConstants.lightGrey,
+                    borderRadius: BorderRadius.circular(50)),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+            ]
           ],
-        ),
-      )),
+        )
+      ],
     );
   }
 }

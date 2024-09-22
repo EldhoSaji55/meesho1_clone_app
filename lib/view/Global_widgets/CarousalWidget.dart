@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 
 class Carousalwidget extends StatelessWidget {
   final String imageUrl;
