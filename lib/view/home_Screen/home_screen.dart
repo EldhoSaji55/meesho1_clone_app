@@ -11,37 +11,50 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        //AppBar Section
-        appBar: _appBarSection(),
         body: Column(
           children: [
-            // Search Bar Section
-            _SearchBarSection(),
+            // Non Scrollable Section
+            Column(
+              children: [
+                //AppBar Section
+                _appBarSection(),
+                // Search Bar Section
+                _SearchBarSection(),
+              ],
+            ),
 
-            //Title bar Section -Showing return policy, COD, Scrollable Circle avatar
-            _TitleBannerSection(),
+            // Scrollable Section
+            Expanded(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: [
+                    //Title bar Section -Showing return policy, COD, Scrollable Circle avatar
+                    _TitleBannerSection(),
 
-            //Carousal Banner
-            _HomepageCarousel(),
+                    //Carousal Banner
+                    _HomepageCarousel(),
 
-// Daily Deals Section
-            _DailyDealsSection()
+                    // Daily Deals Section
+                    _DailyDealsSection(screenWidth, screenHeight)
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),
     );
   }
 
-  _DailyDealsSection() {
+  _DailyDealsSection(screenWidth, screenHeight) {
     return Column(
       children: [
-        Container(
-          height: 6,
-          width: double.infinity,
-          color: ColorConstants.lightGrey,
-        ),
+        _SectionDivider(),
         Container(
           width: double.infinity,
           height: 40,
@@ -54,19 +67,78 @@ class HomeScreen extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        Row(
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 12),
+            child: Text(
+              "Low Price Store",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Stack(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Daily Deals",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                )
-              ],
-            )
+            Container(
+              height: screenHeight / 7,
+              width: screenWidth / 3.8,
+              decoration: BoxDecoration(
+                border: Border.all(color: ColorConstants.mainorange, width: 2),
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: Container(
+                  height: screenHeight / 7.2,
+                  width: screenWidth / 4,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: ColorConstants.primaryColor,
+                  )),
+            ),
+            Positioned(
+                top: 2,
+                left: 2,
+                child: Material(
+                  elevation: 0.5,
+                  color: Colors.transparent,
+                  child: Container(
+                      height: screenHeight / 7.4,
+                      width: screenWidth / 4.1,
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                color: ColorConstants.mainred.withOpacity(0.5),
+                                offset: Offset(2, 3),
+                                blurRadius: 0.5)
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                              image: AssetImage(ImageConstants.carosalBanner_1),
+                              fit: BoxFit.cover))),
+                )),
+            Positioned(
+                child: Container(
+              height: 50,
+              width: 70,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Colors.amber.shade300, Colors.amber.shade800],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight),
+              ),
+            ))
           ],
-        )
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        _SectionDivider()
       ],
     );
   }
@@ -143,7 +215,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  AppBar _appBarSection() {
+  _appBarSection() {
     return AppBar(
       leadingWidth: 80,
       toolbarHeight: 80,
@@ -187,7 +259,7 @@ class HomeScreen extends StatelessWidget {
           color: ColorConstants.primaryColor.withOpacity(.5),
         ),
         SizedBox(
-          width: 20,
+          width: 15,
         )
       ],
     );
@@ -197,25 +269,26 @@ class HomeScreen extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 3),
           child: SizedBox(
-            height: 45,
+            height: 40,
             child: TextField(
                 decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(15),
                   borderSide: BorderSide(color: ColorConstants.lightGrey)),
               disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(15),
                   borderSide: BorderSide(color: ColorConstants.lightGrey)),
               focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(15),
                   borderSide: BorderSide(color: ColorConstants.lightGrey)),
               hintText: "Search by Keyword or Product ID",
               hintStyle:
-                  TextStyle(fontSize: 15, color: ColorConstants.mainGrey),
+                  TextStyle(fontSize: 13, color: ColorConstants.mainGrey),
               prefixIcon: Icon(
                 Icons.search,
+                size: 20,
                 color: ColorConstants.mainGrey,
               ),
               suffixIcon: Row(
@@ -223,11 +296,13 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.mic,
+                    size: 20,
                     color: ColorConstants.mainGrey,
                   ),
                   SizedBox(width: 10),
                   Icon(
                     Icons.camera_alt,
+                    size: 20,
                     color: ColorConstants.mainGrey,
                   ),
                   SizedBox(width: 15),
@@ -240,6 +315,21 @@ class HomeScreen extends StatelessWidget {
           height: 5,
         ),
       ],
+    );
+  }
+}
+
+class _SectionDivider extends StatelessWidget {
+  const _SectionDivider({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 6,
+      width: double.infinity,
+      color: ColorConstants.lightGrey,
     );
   }
 }
@@ -275,7 +365,7 @@ class _HomepageCarouselState extends State<_HomepageCarousel> {
                   setState(() {});
                 },
                 autoPlay: true,
-                enlargeFactor: 1,
+                enlargeFactor: 0.5,
                 autoPlayCurve: Curves.linear,
                 autoPlayInterval: Duration(seconds: 4),
                 autoPlayAnimationDuration: Duration(milliseconds: 800),
