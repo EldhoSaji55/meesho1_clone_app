@@ -10,4 +10,5 @@ class ColorConstants {
   static const Color mainGrey = Colors.grey;
   static const Color lightGrey = Color(0xffE5E4E2);
   static const Color mainorange = Color.fromARGB(255, 255, 127, 67);
+  static const Color mainBrown = Color.fromARGB(255, 112, 68, 52);
 }

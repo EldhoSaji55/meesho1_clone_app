@@ -5,6 +5,9 @@ import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 import 'package:meesho_clone_app/utils/constants/image_constants.dart';
 import 'package:meesho_clone_app/view/Global_widgets/CarousalWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/GlobalCircleAvatar.dart';
+import 'package:meesho_clone_app/view/Global_widgets/HomepageCarouselWidget.dart';
+import 'package:meesho_clone_app/view/Global_widgets/ProductCardWidget.dart';
+import 'package:meesho_clone_app/view/Global_widgets/SectionDividerWidget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -37,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                     _TitleBannerSection(),
 
                     //Carousal Banner
-                    _HomepageCarousel(),
+                    HomepageCarouselWidget(),
 
                     // Daily Deals Section
                     _DailyDealsSection(screenWidth, screenHeight)
@@ -54,7 +57,7 @@ class HomeScreen extends StatelessWidget {
   _DailyDealsSection(screenWidth, screenHeight) {
     return Column(
       children: [
-        _SectionDivider(),
+        SectionDividerWidget(),
         Container(
           width: double.infinity,
           height: 40,
@@ -80,65 +83,11 @@ class HomeScreen extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        Stack(
-          children: [
-            Container(
-              height: screenHeight / 7,
-              width: screenWidth / 3.8,
-              decoration: BoxDecoration(
-                border: Border.all(color: ColorConstants.mainorange, width: 2),
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: Container(
-                  height: screenHeight / 7.2,
-                  width: screenWidth / 4,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: ColorConstants.primaryColor,
-                  )),
-            ),
-            Positioned(
-                top: 2,
-                left: 2,
-                child: Material(
-                  elevation: 0.5,
-                  color: Colors.transparent,
-                  child: Container(
-                      height: screenHeight / 7.4,
-                      width: screenWidth / 4.1,
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                                color: ColorConstants.mainred.withOpacity(0.5),
-                                offset: Offset(2, 3),
-                                blurRadius: 0.5)
-                          ],
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                              image: AssetImage(ImageConstants.carosalBanner_1),
-                              fit: BoxFit.cover))),
-                )),
-            Positioned(
-                child: Container(
-              height: 50,
-              width: 70,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [Colors.amber.shade300, Colors.amber.shade800],
-                    begin: Alignment.bottomLeft,
-                    end: Alignment.topRight),
-              ),
-            ))
-          ],
-        ),
+        ProductCardWidget(),
         SizedBox(
           height: 15,
         ),
-        _SectionDivider()
+        SectionDividerWidget()
       ],
     );
   }
@@ -313,90 +262,6 @@ class HomeScreen extends StatelessWidget {
         ),
         SizedBox(
           height: 5,
-        ),
-      ],
-    );
-  }
-}
-
-class _SectionDivider extends StatelessWidget {
-  const _SectionDivider({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 6,
-      width: double.infinity,
-      color: ColorConstants.lightGrey,
-    );
-  }
-}
-
-class _HomepageCarousel extends StatefulWidget {
-  _HomepageCarousel({
-    super.key,
-  });
-
-  @override
-  State<_HomepageCarousel> createState() => _HomepageCarouselState();
-}
-
-class _HomepageCarouselState extends State<_HomepageCarousel> {
-  int _currentindex = 0;
-  List<Widget> CarousalList = [
-    Carousalwidget(imageUrl: ImageConstants.carosalBanner_1),
-    Carousalwidget(imageUrl: ImageConstants.carosalBanner_2),
-    Carousalwidget(imageUrl: ImageConstants.carosalBanner_3),
-    Carousalwidget(imageUrl: ImageConstants.carosalBanner_4),
-    Carousalwidget(imageUrl: ImageConstants.carosalBanner_5),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CarouselSlider(
-            items: CarousalList,
-            options: CarouselOptions(
-                onPageChanged: (index, reason) {
-                  _currentindex = index;
-                  setState(() {});
-                },
-                autoPlay: true,
-                enlargeFactor: 0.5,
-                autoPlayCurve: Curves.linear,
-                autoPlayInterval: Duration(seconds: 4),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                viewportFraction: 0.8,
-                aspectRatio: 2.35 / 1,
-                enableInfiniteScroll: false,
-                padEnds: true)),
-        SizedBox(
-          height: 10,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            for (int i = 0; i < CarousalList.length; i++) ...[
-              Container(
-                height: 6,
-                width: (_currentindex == i) ? 20 : 12,
-                decoration: BoxDecoration(
-                    color: (_currentindex == i)
-                        ? ColorConstants.primaryColor
-                        : ColorConstants.lightGrey,
-                    borderRadius: BorderRadius.circular(50)),
-              ),
-              SizedBox(
-                width: 5,
-              ),
-            ]
-          ],
-        ),
-        SizedBox(
-          height: 10,
         ),
       ],
     );
