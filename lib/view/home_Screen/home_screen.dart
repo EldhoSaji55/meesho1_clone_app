@@ -1,13 +1,15 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meesho_clone_app/dummy_db.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 import 'package:meesho_clone_app/utils/constants/image_constants.dart';
-import 'package:meesho_clone_app/view/Global_widgets/CarousalWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/GlobalCircleAvatar.dart';
 import 'package:meesho_clone_app/view/Global_widgets/HomepageCarouselWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/ProductCardWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/SectionDividerWidget.dart';
+import 'package:meesho_clone_app/view/Global_widgets/Timer_Widget/TimerCountdownState.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -42,8 +44,53 @@ class HomeScreen extends StatelessWidget {
                     //Carousal Banner
                     HomepageCarouselWidget(),
 
-                    // Daily Deals Section
-                    _DailyDealsSection(screenWidth, screenHeight)
+                    // Low Price Section
+                    _LowPriceSection(screenWidth, screenHeight),
+
+                    //Daily Deals Section
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Row(
+                              children: [
+                                Text("Daily Deals"),
+                                Container(
+                                  child: Row(
+                                    children: [
+                                      Icon(FontAwesomeIcons.bomb),
+                                      TimerCountdown(
+                                          hoursDescription: 'h',
+                                          secondsDescription: 's',
+                                          minutesDescription: 'm',
+                                          spacerWidth: 3,
+                                          format: CountDownTimerFormat
+                                              .hoursMinutesSeconds,
+                                          endTime: DateTime.now().add(Duration(
+                                              hours: 02,
+                                              minutes: 00,
+                                              seconds: 00)),
+                                          onEnd: () => TimerCountdown(
+                                              hoursDescription: 'h',
+                                              secondsDescription: 's',
+                                              minutesDescription: 'm',
+                                              spacerWidth: 3,
+                                              format: CountDownTimerFormat
+                                                  .hoursMinutesSeconds,
+                                              endTime: DateTime.now().add(
+                                                  Duration(
+                                                      hours: 02,
+                                                      minutes: 00,
+                                                      seconds: 00))))
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    )
                   ],
                 ),
               ),
@@ -54,7 +101,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  _DailyDealsSection(screenWidth, screenHeight) {
+  _LowPriceSection(screenWidth, screenHeight) {
     return Column(
       children: [
         SectionDividerWidget(),
@@ -81,9 +128,19 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 20,
+          height: 15,
         ),
-        ProductCardWidget(),
+        Container(
+          height: 148,
+          child: ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 12),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => ProductCardWidget(),
+              separatorBuilder: (context, index) => SizedBox(
+                    width: 10,
+                  ),
+              itemCount: 5),
+        ),
         SizedBox(
           height: 15,
         ),
