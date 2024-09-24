@@ -1,16 +1,14 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:huge_icons_flutter/huge_icons_flutter.dart';
 import 'package:meesho_clone_app/dummy_db.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 import 'package:meesho_clone_app/utils/constants/image_constants.dart';
 import 'package:meesho_clone_app/view/Global_widgets/GlobalCircleAvatar.dart';
 import 'package:meesho_clone_app/view/Global_widgets/ProductCardWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/SectionDividerWidget.dart';
-import 'package:meesho_clone_app/view/Global_widgets/Timer_Widget/TimerCountdownState.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/ContentSectionWidget.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/HomepageCarouselWidget.dart';
+import 'package:meesho_clone_app/view/home_Screen/widget/ImageCardWidget.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/titleCODWidget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -56,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                     _LowPriceSection(screenWidth, screenHeight),
 
                     //Daily Deals Section
-                    _DailyDealsSection()
+                    _DailyDealsSection(),
                   ],
                 ),
               ),
@@ -70,17 +68,28 @@ class HomeScreen extends StatelessWidget {
   Widget _DailyDealsSection() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: ContentSectionWidget(
-        viewall: true,
-        timerEnabled: true,
-        containerColor: ColorConstants.lightOrange,
-        containerHeight: 25,
-        containerWidth: 120,
-        containerRadius: 5,
-        awesomeIcons: FontAwesomeIcons.bomb,
-        timerColor: ColorConstants.mainorange,
-        title: "Daily Deals",
-        iconSize: 16,
+      child: Column(
+        children: [
+          ContentSectionWidget(
+            viewall: true,
+            timerEnabled: true,
+            containerColor: ColorConstants.lightOrange,
+            containerHeight: 25,
+            containerWidth: 120,
+            containerRadius: 5,
+            awesomeIcons: FontAwesomeIcons.bomb,
+            timerColor: ColorConstants.mainorange,
+            title: "Daily Deals",
+            iconSize: 16,
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          ImageCardWidget(),
+          SizedBox(
+            height: 15,
+          ),
+        ],
       ),
     );
   }
