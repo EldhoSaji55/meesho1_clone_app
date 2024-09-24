@@ -1,15 +1,17 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:huge_icons_flutter/huge_icons_flutter.dart';
 import 'package:meesho_clone_app/dummy_db.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 import 'package:meesho_clone_app/utils/constants/image_constants.dart';
 import 'package:meesho_clone_app/view/Global_widgets/GlobalCircleAvatar.dart';
-import 'package:meesho_clone_app/view/Global_widgets/HomepageCarouselWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/ProductCardWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/SectionDividerWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/Timer_Widget/TimerCountdownState.dart';
+import 'package:meesho_clone_app/view/home_Screen/widget/ContentSectionWidget.dart';
+import 'package:meesho_clone_app/view/home_Screen/widget/HomepageCarouselWidget.dart';
+import 'package:meesho_clone_app/view/home_Screen/widget/titleCODWidget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,7 +24,10 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
+            // _______________________________________________
             // Non Scrollable Section
+            // _______________________________________________
+
             Column(
               children: [
                 //AppBar Section
@@ -32,7 +37,10 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
 
+            // _______________________________________________
             // Scrollable Section
+            // _______________________________________________
+
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
@@ -48,49 +56,7 @@ class HomeScreen extends StatelessWidget {
                     _LowPriceSection(screenWidth, screenHeight),
 
                     //Daily Deals Section
-                    Column(
-                      children: [
-                        Row(
-                          children: [
-                            Row(
-                              children: [
-                                Text("Daily Deals"),
-                                Container(
-                                  child: Row(
-                                    children: [
-                                      Icon(FontAwesomeIcons.bomb),
-                                      TimerCountdown(
-                                          hoursDescription: 'h',
-                                          secondsDescription: 's',
-                                          minutesDescription: 'm',
-                                          spacerWidth: 3,
-                                          format: CountDownTimerFormat
-                                              .hoursMinutesSeconds,
-                                          endTime: DateTime.now().add(Duration(
-                                              hours: 02,
-                                              minutes: 00,
-                                              seconds: 00)),
-                                          onEnd: () => TimerCountdown(
-                                              hoursDescription: 'h',
-                                              secondsDescription: 's',
-                                              minutesDescription: 'm',
-                                              spacerWidth: 3,
-                                              format: CountDownTimerFormat
-                                                  .hoursMinutesSeconds,
-                                              endTime: DateTime.now().add(
-                                                  Duration(
-                                                      hours: 02,
-                                                      minutes: 00,
-                                                      seconds: 00))))
-                                    ],
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        )
-                      ],
-                    )
+                    _DailyDealsSection()
                   ],
                 ),
               ),
@@ -101,7 +67,25 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  _LowPriceSection(screenWidth, screenHeight) {
+  Widget _DailyDealsSection() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: ContentSectionWidget(
+        viewall: true,
+        timerEnabled: true,
+        containerColor: ColorConstants.lightOrange,
+        containerHeight: 25,
+        containerWidth: 120,
+        containerRadius: 5,
+        awesomeIcons: FontAwesomeIcons.bomb,
+        timerColor: ColorConstants.mainorange,
+        title: "Daily Deals",
+        iconSize: 16,
+      ),
+    );
+  }
+
+  Widget _LowPriceSection(screenWidth, screenHeight) {
     return Column(
       children: [
         SectionDividerWidget(),
@@ -149,7 +133,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  _TitleBannerSection() {
+  Widget _TitleBannerSection() {
     return Column(
       children: [
         Container(
@@ -164,7 +148,7 @@ class HomeScreen extends StatelessWidget {
             child: IntrinsicHeight(
               child: Row(
                 children: [
-                  _titleWidget(
+                  titleCODWidget(
                       text: "7 Days \nEasy Return",
                       iconlink: ImageConstants.returnIcon),
                   VerticalDivider(
@@ -172,7 +156,7 @@ class HomeScreen extends StatelessWidget {
                     indent: 8,
                     endIndent: 8,
                   ),
-                  _titleWidget(
+                  titleCODWidget(
                       text: "Cash on \nDelivery",
                       iconlink: ImageConstants.rupeeIcon),
                   VerticalDivider(
@@ -180,7 +164,7 @@ class HomeScreen extends StatelessWidget {
                     indent: 8,
                     endIndent: 8,
                   ),
-                  _titleWidget(
+                  titleCODWidget(
                       text: "Lowest \nPrice",
                       iconlink: ImageConstants.pricetagIcon)
                 ],
@@ -221,8 +205,9 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  _appBarSection() {
+  Widget _appBarSection() {
     return AppBar(
+      forceMaterialTransparency: true,
       leadingWidth: 80,
       toolbarHeight: 80,
       title: Align(
@@ -271,7 +256,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  _SearchBarSection() {
+  Widget _SearchBarSection() {
     return Column(
       children: [
         Padding(
@@ -321,43 +306,6 @@ class HomeScreen extends StatelessWidget {
           height: 5,
         ),
       ],
-    );
-  }
-}
-
-class _titleWidget extends StatelessWidget {
-  String text;
-  String iconlink;
-  _titleWidget({
-    required this.text,
-    required this.iconlink,
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: [
-          SizedBox(
-            height: 30,
-            width: 30,
-            child: Image.asset(iconlink),
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "$text",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-              ),
-            ],
-          )
-        ],
-      ),
     );
   }
 }

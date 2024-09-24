@@ -22,7 +22,7 @@ class Globalcircleavatar extends StatelessWidget {
           backgroundImage: fetchassetimage
               ? AssetImage(imageLocation)
               : NetworkImage(imageLocation),
-          backgroundColor: ColorConstants.mainWhite,
+          backgroundColor: ColorConstants.Lavender,
           radius: 30,
         ),
         Padding(
