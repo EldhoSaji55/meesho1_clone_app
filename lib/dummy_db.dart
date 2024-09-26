@@ -62,4 +62,24 @@ class DummyDb {
       "text": 'Accessories'
     },
   ];
+
+  static List ProductList = [
+    {
+      "Category": "Men Shirt",
+      "Gender": {"Men", "Boys"},
+      "Brand": "North Republic",
+      "Color": {"red", "yellow", "green", "blue"},
+      "imageUrl":
+          "https://images.pexels.com/photos/28581567/pexels-photo-28581567/free-photo-of-fashionable-man-in-sunglasses-outdoors.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "fabric": "cotton",
+      "size": {"S", "M", "L", "XL"},
+      "price": {"S": "550", "M": "750", "L": "999", "XL": "1400"},
+      "rating": "4.5",
+      "Discount": {"S": "520", "M": "700", "L": "959", "XL": "1300"},
+      "userCount": "14499",
+      "trusted": true,
+      "Timeroffer": false,
+      "mallProduct": true,
+    }
+  ];
 }

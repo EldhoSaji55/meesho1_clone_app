@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
+import 'package:meesho_clone_app/view/Product_Listing_Page/productListingScreen.dart';
 import 'package:meesho_clone_app/view/home_screen/home_screen.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
@@ -21,9 +22,9 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
     Container(
       color: Colors.blue,
     ),
-    Container(
-      color: Colors.green,
-    ),
+    Productlistingscreen(
+      title: "Products For You",
+    )
   ];
   int index = 0;
   @override

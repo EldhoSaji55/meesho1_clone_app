@@ -54,7 +54,14 @@ class HomeScreen extends StatelessWidget {
                     _LowPriceSection(screenWidth, screenHeight),
 
                     //Daily Deals Section
-                    _DailyDealsSection(),
+                    _DailyDealsSection(screenWidth, screenHeight),
+
+                    SectionDividerWidget(),
+
+                    // Bachat Bazaar Section
+                    _BachatBazaarSection(),
+
+                    SectionDividerWidget(),
                   ],
                 ),
               ),
@@ -65,7 +72,53 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _DailyDealsSection() {
+  Widget _BachatBazaarSection() {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: Column(
+            children: [
+              ContentSectionWidget(
+                  timerEnabled: false,
+                  viewall: false,
+                  title: "Bachat Bazaar",
+                  containerHeight: 0,
+                  containerWidth: 0,
+                  containerRadius: 0,
+                  containerColor: ColorConstants.mainWhite),
+              Container(
+                height: 107,
+                child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => ImageCardWidget(
+                          titleColor: ColorConstants.cyan,
+                          cardColor: ColorConstants.primaryColor,
+                          cardHeight: 55,
+                          cardWidth: 100,
+                          fontWeight: 11,
+                          titleFontWeight: FontWeight.w600,
+                          imageUrl: DummyDb.CircleAvatarList[index]["imageurl"],
+                          imageheight: 75,
+                          title: DummyDb.CircleAvatarList[index]["text"],
+                          imagebottomRadius: 10,
+                        ),
+                    separatorBuilder: (context, index) => SizedBox(
+                          width: 10,
+                        ),
+                    itemCount: DummyDb.CircleAvatarList.length),
+              )
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        )
+      ],
+    );
+  }
+
+  Widget _DailyDealsSection(screenWidth, screenHeight) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Column(
@@ -82,12 +135,26 @@ class HomeScreen extends StatelessWidget {
             title: "Daily Deals",
             iconSize: 16,
           ),
-          SizedBox(
-            height: 5,
+          Container(
+            height: 130,
+            child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.symmetric(horizontal: 3),
+                itemBuilder: (context, index) => ImageCardWidget(
+                      cardColor: ColorConstants.lightOrange,
+                      cardHeight: 110,
+                      cardWidth: 95,
+                      imageUrl: DummyDb.CircleAvatarList[index]["imageurl"],
+                      imageheight: 95,
+                      title: DummyDb.CircleAvatarList[index]["text"],
+                    ),
+                separatorBuilder: (context, index) => SizedBox(
+                      width: 10,
+                    ),
+                itemCount: DummyDb.CircleAvatarList.length),
           ),
-          ImageCardWidget(),
           SizedBox(
-            height: 15,
+            height: 25,
           ),
         ],
       ),
