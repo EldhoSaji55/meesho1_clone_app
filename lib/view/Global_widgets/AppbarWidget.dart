@@ -7,12 +7,14 @@ class AppbarWidget extends StatelessWidget {
     this.needCart = true,
     this.needHeart = true,
     this.needSearch = true,
+    required this.title,
     super.key,
   });
 
   bool needSearch;
   bool needHeart;
   bool needCart;
+  String title;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class AppbarWidget extends StatelessWidget {
         title: Padding(
           padding: const EdgeInsets.only(top: 20),
           child: Text(
-            "CATEGORIES",
+            title,
             style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w500,

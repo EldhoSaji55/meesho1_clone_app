@@ -13,7 +13,12 @@ class Categoryscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [AppbarWidget(), Expanded(child: Categorylistwidget())],
+        children: [
+          AppbarWidget(
+            title: "CATEGORIES",
+          ),
+          Expanded(child: Categorylistwidget())
+        ],
       ),
     );
   }

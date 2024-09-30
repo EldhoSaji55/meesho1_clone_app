@@ -507,4 +507,21 @@ class DummyDb {
       "mallProduct": true,
     }
   ];
+  static List<String> meeshoHelpQueries = [
+    "How do I sign up on the Meesho app?",
+    "How can I place an order on Meesho?",
+    "What are the payment options available on Meesho?",
+    "How can I track my Meesho order?",
+    "How do I return or exchange a product on Meesho?",
+    "What is Meesho’s refund policy?",
+    "How can I contact Meesho customer support?",
+    "How do I add products to my wishlist on Meesho?",
+    "What is the delivery time for orders placed on Meesho?",
+    "How do I cancel my Meesho order?",
+    "Can I change my delivery address after placing an order?",
+    "What is the Meesho Supplier Panel, and how do I access it?",
+    "How can I earn with Meesho as a reseller?",
+    "Why was my order rejected or cancelled by Meesho?",
+    "What should I do if I receive a damaged or incorrect product?"
+  ];
 }

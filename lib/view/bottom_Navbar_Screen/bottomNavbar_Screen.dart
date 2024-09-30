@@ -4,6 +4,7 @@ import 'package:meesho_clone_app/view/Global_widgets/productListingScreen.dart';
 import 'package:meesho_clone_app/view/OrdernowScreen/orderNowScreen.dart';
 import 'package:meesho_clone_app/view/Product_Listing_Page/productlistpageScreen.dart';
 import 'package:meesho_clone_app/view/category_Screen/categoryscreen.dart';
+import 'package:meesho_clone_app/view/helpScreen/helpScreen.dart';
 import 'package:meesho_clone_app/view/home_screen/home_screen.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
@@ -18,9 +19,7 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
     HomeScreen(),
     Categoryscreen(),
     SizedBox(),
-    Container(
-      color: Colors.blue,
-    ),
+    Helpscreen(),
     Productlistpagescreen(),
   ];
   int index = 0;
