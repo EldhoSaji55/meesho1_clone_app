@@ -87,7 +87,7 @@ class DummyDb {
         {"XL": "1300"}
       ],
       "userCount": "14499",
-      "trusted": true,
+      "trusted": false,
       "Timeroffer": false,
       "mallProduct": true,
     },
@@ -138,7 +138,7 @@ class DummyDb {
       ],
       "userCount": "5623",
       "trusted": false,
-      "Timeroffer": true,
+      "Timeroffer": false,
       "mallProduct": true,
     },
     {
@@ -187,9 +187,9 @@ class DummyDb {
         {"Free Size": "2400"}
       ],
       "userCount": "24501",
-      "trusted": true,
+      "trusted": false,
       "Timeroffer": true,
-      "mallProduct": true,
+      "mallProduct": false,
     },
     {
       "Category": "Laptop",
@@ -236,8 +236,8 @@ class DummyDb {
       ],
       "userCount": "5403",
       "trusted": false,
-      "Timeroffer": true,
-      "mallProduct": true,
+      "Timeroffer": false,
+      "mallProduct": false,
     },
     {
       "Category": "Men T-Shirt",
@@ -262,7 +262,7 @@ class DummyDb {
         {"XL": "550"}
       ],
       "userCount": "9865",
-      "trusted": true,
+      "trusted": false,
       "Timeroffer": false,
       "mallProduct": true,
     },
@@ -331,9 +331,9 @@ class DummyDb {
         {"Free Size": "5700"}
       ],
       "userCount": "8541",
-      "trusted": true,
+      "trusted": false,
       "Timeroffer": true,
-      "mallProduct": true,
+      "mallProduct": false,
     },
     {
       "Category": "Laptop",
@@ -380,7 +380,7 @@ class DummyDb {
       ],
       "userCount": "7203",
       "trusted": true,
-      "Timeroffer": true,
+      "Timeroffer": false,
       "mallProduct": true,
     },
     {
@@ -406,7 +406,7 @@ class DummyDb {
         {"XXL": "1050"}
       ],
       "userCount": "13265",
-      "trusted": true,
+      "trusted": false,
       "Timeroffer": false,
       "mallProduct": true,
     },
@@ -475,7 +475,7 @@ class DummyDb {
         {"Free Size": "5200"}
       ],
       "userCount": "9023",
-      "trusted": true,
+      "trusted": false,
       "Timeroffer": true,
       "mallProduct": false,
     },

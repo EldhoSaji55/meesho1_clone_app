@@ -6,6 +6,7 @@ import 'package:meesho_clone_app/utils/constants/image_constants.dart';
 import 'package:meesho_clone_app/view/Global_widgets/GlobalCircleAvatar.dart';
 import 'package:meesho_clone_app/view/Global_widgets/ProductCardWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/SectionDividerWidget.dart';
+import 'package:meesho_clone_app/view/Global_widgets/productListingScreen.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/ContentSectionWidget.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/HomepageCarouselWidget.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/ImageCardWidget.dart';
@@ -43,6 +44,7 @@ class HomeScreen extends StatelessWidget {
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     //Title bar Section -Showing return policy, COD, Scrollable Circle avatar
                     _TitleBannerSection(),
@@ -62,10 +64,14 @@ class HomeScreen extends StatelessWidget {
                     _BachatBazaarSection(),
 
                     SectionDividerWidget(),
+
+                    Container(
+                        color: ColorConstants.colGrey,
+                        child: Productlistingscreen(title: "Product For You")),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

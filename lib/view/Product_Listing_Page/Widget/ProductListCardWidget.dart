@@ -83,6 +83,17 @@ class ProductListCardWidget extends StatelessWidget {
                             timerColor: ColorConstants.lightOrange,
                             containerTitle: "Mall"))
                     : Text(""),
+                Positioned(
+                    right: 8,
+                    top: 8,
+                    child: CircleAvatar(
+                      radius: 10,
+                      backgroundColor: ColorConstants.mainWhite,
+                      child: Icon(
+                        Icons.favorite_border,
+                        size: 16,
+                      ),
+                    ))
               ]),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -142,7 +153,8 @@ class ProductListCardWidget extends StatelessWidget {
                         children: [
                           Text(
                             "₹ $price",
-                            style: TextStyle(fontWeight: FontWeight.w500),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 14),
                           ),
                           SizedBox(
                             width: 5,
@@ -150,7 +162,7 @@ class ProductListCardWidget extends StatelessWidget {
                           Text(
                             discount,
                             style: TextStyle(
-                                fontSize: 11,
+                                fontSize: 10,
                                 color: ColorConstants.mainGrey,
                                 fontWeight: FontWeight.w500,
                                 decoration: TextDecoration.lineThrough,
@@ -162,7 +174,7 @@ class ProductListCardWidget extends StatelessWidget {
                           Text(
                             "19% off",
                             style: TextStyle(
-                                fontSize: 11, fontWeight: FontWeight.w500),
+                                fontSize: 10, fontWeight: FontWeight.w500),
                           ),
                         ],
                       ),
@@ -233,7 +245,7 @@ class ProductListCardWidget extends StatelessWidget {
                                 width: 4,
                               ),
                               Text(
-                                totalBuyers,
+                                "($totalBuyers)",
                                 style: TextStyle(
                                     fontSize: 10,
                                     color: ColorConstants.mainGrey),
