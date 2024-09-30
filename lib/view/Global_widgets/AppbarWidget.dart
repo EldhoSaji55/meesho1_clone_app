@@ -3,9 +3,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 
 class AppbarWidget extends StatelessWidget {
-  const AppbarWidget({
+  AppbarWidget({
+    this.needCart = true,
+    this.needHeart = true,
+    this.needSearch = true,
     super.key,
   });
+
+  bool needSearch;
+  bool needHeart;
+  bool needCart;
 
   @override
   Widget build(BuildContext context) {
@@ -35,27 +42,33 @@ class AppbarWidget extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20, right: 6),
             child: Row(
               children: [
-                FaIcon(
-                  FontAwesomeIcons.magnifyingGlass,
-                  color: ColorConstants.Iconblue,
-                  size: 20,
-                ),
+                needSearch
+                    ? FaIcon(
+                        FontAwesomeIcons.magnifyingGlass,
+                        color: ColorConstants.Iconblue,
+                        size: 20,
+                      )
+                    : SizedBox(),
                 SizedBox(
                   width: 10,
                 ),
-                FaIcon(
-                  FontAwesomeIcons.solidHeart,
-                  color: ColorConstants.mainred,
-                  size: 20,
-                ),
+                needHeart
+                    ? FaIcon(
+                        FontAwesomeIcons.solidHeart,
+                        color: ColorConstants.mainred,
+                        size: 20,
+                      )
+                    : SizedBox(),
                 SizedBox(
                   width: 10,
                 ),
-                FaIcon(
-                  FontAwesomeIcons.cartShopping,
-                  color: ColorConstants.primaryColor,
-                  size: 20,
-                ),
+                needCart
+                    ? FaIcon(
+                        FontAwesomeIcons.cartShopping,
+                        color: ColorConstants.primaryColor,
+                        size: 20,
+                      )
+                    : SizedBox(),
                 SizedBox(
                   width: 10,
                 ),

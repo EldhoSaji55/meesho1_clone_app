@@ -17,9 +17,7 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
   List screens = [
     HomeScreen(),
     Categoryscreen(),
-    InkWell(
-      onTap: () => Ordernowscreen.new,
-    ),
+    SizedBox(),
     Container(
       color: Colors.blue,
     ),
@@ -52,11 +50,15 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
                 ),
                 label: 'Category'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_outlined),
-                activeIcon: Icon(
-                  Icons.shopping_cart,
-                  color: ColorConstants.primaryColor,
-                ),
+                icon: InkWell(
+                    onTap: () {
+                      showModalBottomSheet(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          context: context,
+                          builder: (context) => Ordernowscreen());
+                    },
+                    child: Icon(Icons.shopping_cart_outlined)),
                 label: 'My Orders'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.help_center_outlined),
