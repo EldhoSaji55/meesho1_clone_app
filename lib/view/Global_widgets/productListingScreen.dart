@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meesho_clone_app/dummy_db.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
-import 'package:meesho_clone_app/view/Global_widgets/SectionDividerWidget.dart';
 import 'package:meesho_clone_app/view/Product_Listing_Page/Widget/ProductListCardWidget.dart';
 
 class Productlistingscreen extends StatelessWidget {

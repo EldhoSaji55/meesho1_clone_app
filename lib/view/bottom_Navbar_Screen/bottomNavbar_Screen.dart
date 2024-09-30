@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 import 'package:meesho_clone_app/view/Global_widgets/productListingScreen.dart';
 import 'package:meesho_clone_app/view/Product_Listing_Page/productlistpageScreen.dart';
+import 'package:meesho_clone_app/view/category_Screen/categoryscreen.dart';
 import 'package:meesho_clone_app/view/home_screen/home_screen.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
@@ -14,9 +15,7 @@ class BottomNavbarScreen extends StatefulWidget {
 class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
   List screens = [
     HomeScreen(),
-    Container(
-      color: Colors.yellow,
-    ),
+    Categoryscreen(),
     Container(
       color: Colors.red,
     ),

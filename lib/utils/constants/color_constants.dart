@@ -5,6 +5,7 @@ class ColorConstants {
   static const Color secondaryColor = Color(0xff860f6a);
   static const Color mainYellow = Color(0xffFF9C01);
   static const Color mainred = Colors.red;
+  static const Color Black = Color.fromARGB(255, 0, 0, 0);
   static const Color cyan = Colors.cyan;
   static const Color Iconblue = Color(0xff5580E6);
   static const Color Lavender = Color(0xffFCECF7);
