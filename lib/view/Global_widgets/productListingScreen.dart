@@ -3,8 +3,8 @@ import 'package:meesho_clone_app/dummy_db.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 import 'package:meesho_clone_app/view/Product_Listing_Page/Widget/ProductListCardWidget.dart';
 
-class Productlistingscreen extends StatelessWidget {
-  Productlistingscreen({super.key, required this.title});
+class ProductlistingWidget extends StatelessWidget {
+  ProductlistingWidget({super.key, required this.title});
   String title;
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
+import 'package:meesho_clone_app/view/Product_Listing_Page/productlistpageScreen.dart';
 
 class ImageCardWidget extends StatelessWidget {
   ImageCardWidget({
@@ -40,65 +41,74 @@ class ImageCardWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: cardColor,
       ),
-      child: Stack(
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: Container(
-                  height: imageheight,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage(imageUrl), fit: BoxFit.cover),
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(imagebottomRadius),
-                      bottomRight: Radius.circular(imagebottomRadius),
-                      topLeft: Radius.circular(imagetopRadius),
-                      topRight: Radius.circular(imagetopRadius),
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Productlistpagescreen(title: title),
+              ));
+        },
+        child: Stack(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Container(
+                    height: imageheight,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: NetworkImage(imageUrl), fit: BoxFit.cover),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(imagebottomRadius),
+                        bottomRight: Radius.circular(imagebottomRadius),
+                        topLeft: Radius.circular(imagetopRadius),
+                        topRight: Radius.circular(imagetopRadius),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Text(
-                  title,
-                  style: TextStyle(
-                      fontSize: fontWeight,
-                      color: titleColor,
-                      fontWeight: titleFontWeight),
-                ),
-              )
-            ],
-          ),
-          ClipPath(
-            clipper: customClip(),
-            child: Container(
-              height: 30,
-              width: 30,
-              color: const Color.fromRGBO(255, 127, 67, 1),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Under",
-                    style:
-                        TextStyle(color: ColorConstants.mainWhite, fontSize: 7),
-                  ),
-                  Text(
-                    "₹ 350",
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    title,
                     style: TextStyle(
-                        color: ColorConstants.mainWhite,
-                        fontSize: 9,
-                        fontWeight: FontWeight.w600),
+                        fontSize: fontWeight,
+                        color: titleColor,
+                        fontWeight: titleFontWeight),
                   ),
-                ],
-              ),
+                )
+              ],
             ),
-          )
-        ],
+            ClipPath(
+              clipper: customClip(),
+              child: Container(
+                height: 30,
+                width: 30,
+                color: const Color.fromRGBO(255, 127, 67, 1),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Under",
+                      style: TextStyle(
+                          color: ColorConstants.mainWhite, fontSize: 7),
+                    ),
+                    Text(
+                      "₹ 350",
+                      style: TextStyle(
+                          color: ColorConstants.mainWhite,
+                          fontSize: 9,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

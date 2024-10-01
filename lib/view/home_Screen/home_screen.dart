@@ -7,6 +7,7 @@ import 'package:meesho_clone_app/view/Global_widgets/GlobalCircleAvatar.dart';
 import 'package:meesho_clone_app/view/Global_widgets/ProductCardWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/SectionDividerWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/productListingScreen.dart';
+import 'package:meesho_clone_app/view/Product_Listing_Page/productlistpageScreen.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/ContentSectionWidget.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/HomepageCarouselWidget.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/ImageCardWidget.dart';
@@ -68,7 +69,7 @@ class HomeScreen extends StatelessWidget {
                     //ProductListing Widget
                     Container(
                         color: ColorConstants.colGrey,
-                        child: Productlistingscreen(title: "Product For You")),
+                        child: ProductlistingWidget(title: "Product For You")),
                   ],
                 ),
               ),
@@ -202,7 +203,16 @@ class HomeScreen extends StatelessWidget {
           child: ListView.separated(
               padding: EdgeInsets.symmetric(horizontal: 12),
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => ProductCardWidget(),
+              itemBuilder: (context, index) => InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Productlistpagescreen(
+                                  title: "Low Price Store",
+                                )));
+                  },
+                  child: ProductCardWidget()),
               separatorBuilder: (context, index) => SizedBox(
                     width: 10,
                   ),
