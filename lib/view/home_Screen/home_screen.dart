@@ -4,13 +4,13 @@ import 'package:meesho_clone_app/dummy_db.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 import 'package:meesho_clone_app/utils/constants/image_constants.dart';
 import 'package:meesho_clone_app/view/Global_widgets/GlobalCircleAvatar.dart';
-import 'package:meesho_clone_app/view/Global_widgets/ProductCardWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/SectionDividerWidget.dart';
-import 'package:meesho_clone_app/view/Global_widgets/productListingScreen.dart';
+import 'package:meesho_clone_app/view/Global_widgets/productListingWidget.dart';
 import 'package:meesho_clone_app/view/Product_Listing_Page/productlistpageScreen.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/ContentSectionWidget.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/HomepageCarouselWidget.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/ImageCardWidget.dart';
+import 'package:meesho_clone_app/view/home_Screen/widget/ProductCardWidget.dart';
 import 'package:meesho_clone_app/view/home_Screen/widget/titleCODWidget.dart';
 
 class HomeScreen extends StatelessWidget {

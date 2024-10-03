@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
+import 'package:meesho_clone_app/utils/constants/image_constants.dart';
 import 'package:meesho_clone_app/view/Global_widgets/AppbarWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/SectionDividerWidget.dart';
 import 'package:meesho_clone_app/view/helpScreen/Widgets/QuestionnaireWidget.dart';
@@ -29,7 +30,7 @@ class Helpscreen extends StatelessWidget {
                 Container(
                     height: 200,
                     child: Image.asset(
-                      "assets/images/Quickhelp.jpg",
+                      ImageConstants.quickHelpImage,
                       fit: BoxFit.cover,
                     )),
                 SizedBox(

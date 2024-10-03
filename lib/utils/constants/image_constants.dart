@@ -14,4 +14,16 @@ class ImageConstants {
 
   // ---Home Page: Daily Deal Image
   static const String dailyDealImage = "assets/images/dailydeal.jpg";
+
+  //Help screen
+  static const String quickHelpImage = "assets/images/Quickhelp.jpg";
+
+  // Profile Screen
+  static const String ProfileScreen_madeindia = "assets/images/madeinIndia.png";
+  static const String welcomegesture = "assets/images/welcome-gesture.png";
+
+  // PDP - Carousel
+  static const String pdpcarousalimg1 = "assets/images/sample1.jpg";
+  static const String pdpcarousalimg2 = "assets/images/sample2.jpg";
+  static const String pdpcarousalimg3 = "assets/images/sample3.jpg";
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 import 'package:meesho_clone_app/view/Global_widgets/Timer_Widget/TimerMallWidget.dart';
-import 'package:meesho_clone_app/view/Global_widgets/productListingScreen.dart';
 import 'package:meesho_clone_app/view/Product_Listing_Page/productlistpageScreen.dart';
 
 class ContentSectionWidget extends StatelessWidget {

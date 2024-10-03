@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meesho_clone_app/view/Global_widgets/productListingScreen.dart';
+
+import 'package:meesho_clone_app/view/Global_widgets/productListingWidget.dart';
 
 class Productlistpagescreen extends StatelessWidget {
   Productlistpagescreen({

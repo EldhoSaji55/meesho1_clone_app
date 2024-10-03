@@ -65,6 +65,7 @@ class DummyDb {
 
   static List ProductList = [
     {
+      "id": "MSH-01",
       "Category": "Men Shirt",
       "Gender": ["Men", "Boys"],
       "Brand": "North Republic",
@@ -92,6 +93,7 @@ class DummyDb {
       "mallProduct": true,
     },
     {
+      "id": "MSH-02",
       "Category": "Jewellery",
       "Gender": ["Women"],
       "Brand": "Elegant Shine",
@@ -113,6 +115,7 @@ class DummyDb {
       "mallProduct": false,
     },
     {
+      "id": "MSH-03",
       "Category": "T-Shirt",
       "Gender": ["Men", "Women"],
       "Brand": "Street Wear",
@@ -142,6 +145,7 @@ class DummyDb {
       "mallProduct": true,
     },
     {
+      "id": "MSH-04",
       "Category": "Shoes",
       "Gender": ["Men"],
       "Brand": "Runner",
@@ -171,6 +175,7 @@ class DummyDb {
       "mallProduct": false,
     },
     {
+      "id": "MSH-05",
       "Category": "Watches",
       "Gender": ["Unisex"],
       "Brand": "Timeless",
@@ -192,6 +197,7 @@ class DummyDb {
       "mallProduct": false,
     },
     {
+      "id": "MSH-06",
       "Category": "Laptop",
       "Gender": ["Unisex"],
       "Brand": "TechPro",
@@ -215,6 +221,7 @@ class DummyDb {
       "mallProduct": true,
     },
     {
+      "id": "MSH-07",
       "Category": "Mobile",
       "Gender": ["Unisex"],
       "Brand": "SmartTech",
@@ -240,6 +247,7 @@ class DummyDb {
       "mallProduct": false,
     },
     {
+      "id": "MSH-08",
       "Category": "Men T-Shirt",
       "Gender": ["Men"],
       "Brand": "Urban Cool",
@@ -267,6 +275,7 @@ class DummyDb {
       "mallProduct": true,
     },
     {
+      "id": "MSH-09",
       "Category": "Jewellery",
       "Gender": ["Women"],
       "Brand": "Classic Gold",
@@ -288,6 +297,7 @@ class DummyDb {
       "mallProduct": false,
     },
     {
+      "id": "MSH-10",
       "Category": "Shoes",
       "Gender": ["Women"],
       "Brand": "Comfort Walk",
@@ -315,6 +325,7 @@ class DummyDb {
       "mallProduct": false,
     },
     {
+      "id": "MSH-11",
       "Category": "Watches",
       "Gender": ["Men"],
       "Brand": "Luxury Time",
@@ -336,6 +347,7 @@ class DummyDb {
       "mallProduct": false,
     },
     {
+      "id": "MSH-12",
       "Category": "Laptop",
       "Gender": ["Unisex"],
       "Brand": "WorkPro",
@@ -359,6 +371,7 @@ class DummyDb {
       "mallProduct": true,
     },
     {
+      "id": "MSH-13",
       "Category": "Mobile",
       "Gender": ["Unisex"],
       "Brand": "PhoneMax",
@@ -384,6 +397,7 @@ class DummyDb {
       "mallProduct": true,
     },
     {
+      "id": "MSH-14",
       "Category": "Men Shirt",
       "Gender": ["Men"],
       "Brand": "Casual Wear",
@@ -411,6 +425,7 @@ class DummyDb {
       "mallProduct": true,
     },
     {
+      "id": "MSH-15",
       "Category": "Jewellery",
       "Gender": ["Women"],
       "Brand": "Shimmer Jewels",
@@ -432,6 +447,7 @@ class DummyDb {
       "mallProduct": false,
     },
     {
+      "id": "MSH-16",
       "Category": "Shoes",
       "Gender": ["Men"],
       "Brand": "Sportify",
@@ -459,6 +475,7 @@ class DummyDb {
       "mallProduct": true,
     },
     {
+      "id": "MSH-17",
       "Category": "Watches",
       "Gender": ["Women"],
       "Brand": "Elegant Times",
@@ -480,6 +497,7 @@ class DummyDb {
       "mallProduct": false,
     },
     {
+      "id": "MSH-18",
       "Category": "Men Trousers",
       "Gender": ["Men"],
       "Brand": "Formal Line",

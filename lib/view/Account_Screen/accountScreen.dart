@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
+import 'package:meesho_clone_app/utils/constants/image_constants.dart';
 import 'package:meesho_clone_app/view/Global_widgets/AppbarWidget.dart';
 
 class Accountscreen extends StatelessWidget {
@@ -33,8 +34,8 @@ class Accountscreen extends StatelessWidget {
                     width: screenWidth,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image:
-                                AssetImage("assets/images/madeinIndia.png"))),
+                            image: AssetImage(
+                                ImageConstants.ProfileScreen_madeindia))),
                   )
                 ],
               ),
@@ -144,8 +145,7 @@ class Accountscreen extends StatelessWidget {
                 flex: 1,
                 child: CircleAvatar(
                   radius: 30,
-                  backgroundImage:
-                      AssetImage("assets/images/welcome-gesture.png"),
+                  backgroundImage: AssetImage(ImageConstants.welcomegesture),
                 ),
               ),
               SizedBox(
