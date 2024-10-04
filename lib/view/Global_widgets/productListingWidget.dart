@@ -26,6 +26,7 @@ class ProductlistingWidget extends StatelessWidget {
                 return Row(
                   children: [
                     ProductListCardWidget(
+                        productID: DummyDb.ProductList[firstprod]['id'],
                         timerEnabled: DummyDb.ProductList[firstprod]
                             ['Timeroffer'],
                         imageUrl: DummyDb.ProductList[firstprod]['imageUrl'],
@@ -47,6 +48,7 @@ class ProductlistingWidget extends StatelessWidget {
                       width: 3,
                     ),
                     ProductListCardWidget(
+                        productID: DummyDb.ProductList[secondprod]['id'],
                         timerEnabled: DummyDb.ProductList[secondprod]
                             ['Timeroffer'],
                         imageUrl: DummyDb.ProductList[secondprod]['imageUrl'],

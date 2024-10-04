@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meesho_clone_app/dummy_db.dart';
 import 'package:meesho_clone_app/utils/constants/color_constants.dart';
 import 'package:meesho_clone_app/utils/constants/image_constants.dart';
+import 'package:meesho_clone_app/view/Global_widgets/COD_ReturnWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/GlobalCircleAvatar.dart';
 import 'package:meesho_clone_app/view/Global_widgets/SectionDividerWidget.dart';
 import 'package:meesho_clone_app/view/Global_widgets/productListingWidget.dart';
@@ -229,42 +230,7 @@ class HomeScreen extends StatelessWidget {
   Widget _TitleBannerSection() {
     return Column(
       children: [
-        Container(
-          width: double.maxFinite,
-          color: ColorConstants.Lavender,
-          padding: EdgeInsets.all(12),
-          child: Container(
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                color: ColorConstants.mainWhite,
-                borderRadius: BorderRadius.circular(10)),
-            child: IntrinsicHeight(
-              child: Row(
-                children: [
-                  titleCODWidget(
-                      text: "7 Days \nEasy Return",
-                      iconlink: ImageConstants.returnIcon),
-                  VerticalDivider(
-                    thickness: 1,
-                    indent: 8,
-                    endIndent: 8,
-                  ),
-                  titleCODWidget(
-                      text: "Cash on \nDelivery",
-                      iconlink: ImageConstants.rupeeIcon),
-                  VerticalDivider(
-                    thickness: 1,
-                    indent: 8,
-                    endIndent: 8,
-                  ),
-                  titleCODWidget(
-                      text: "Lowest \nPrice",
-                      iconlink: ImageConstants.pricetagIcon)
-                ],
-              ),
-            ),
-          ),
-        ),
+        COD_ReturnWidget(),
         SizedBox(
           height: 5,
         ),

@@ -6,8 +6,10 @@ import 'package:meesho_clone_app/view/Global_widgets/CarousalWidget.dart';
 
 class PdpcarousalWidget extends StatefulWidget {
   PdpcarousalWidget({
+    required this.imageUrl,
     super.key,
   });
+  final String imageUrl;
 
   @override
   State<PdpcarousalWidget> createState() => _PdpcarousalWidgetState();
@@ -15,13 +17,20 @@ class PdpcarousalWidget extends StatefulWidget {
 
 class _PdpcarousalWidgetState extends State<PdpcarousalWidget> {
   int _currentindex = 0;
-  List<Widget> CarousalList = [
-    Carousalwidget(imageUrl: ImageConstants.carosalBanner_1),
-    Carousalwidget(imageUrl: ImageConstants.carosalBanner_2),
-    Carousalwidget(imageUrl: ImageConstants.carosalBanner_3),
-    Carousalwidget(imageUrl: ImageConstants.carosalBanner_4),
-    Carousalwidget(imageUrl: ImageConstants.carosalBanner_5),
-  ];
+  late List<Widget> CarousalList;
+  @override
+  void initState() {
+    super.initState();
+    CarousalList = [
+      Carousalwidget(
+        imageUrl: widget.imageUrl,
+        assetimage: false,
+      ),
+      Carousalwidget(imageUrl: ImageConstants.pdpcarousalimg1),
+      Carousalwidget(imageUrl: ImageConstants.pdpcarousalimg2),
+      Carousalwidget(imageUrl: ImageConstants.pdpcarousalimg3),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +48,8 @@ class _PdpcarousalWidgetState extends State<PdpcarousalWidget> {
                 autoPlayCurve: Curves.linear,
                 autoPlayInterval: Duration(seconds: 4),
                 autoPlayAnimationDuration: Duration(milliseconds: 800),
-                viewportFraction: 0.8,
-                aspectRatio: 2.35 / 1,
+                viewportFraction: 1,
+                aspectRatio: 1 / 1,
                 enableInfiniteScroll: false,
                 padEnds: true)),
         SizedBox(

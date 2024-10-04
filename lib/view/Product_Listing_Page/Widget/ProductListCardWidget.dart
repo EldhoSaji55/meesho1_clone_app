@@ -18,9 +18,11 @@ class ProductListCardWidget extends StatelessWidget {
     required this.rating,
     required this.totalBuyers,
     required this.meeshotrusted,
+    required this.productID,
   });
 
   // String ImageUrl;
+  String productID;
   bool? timerEnabled;
   bool? mallEnabled;
   bool? enableAd;
@@ -44,7 +46,9 @@ class ProductListCardWidget extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ProductDetailScreen(),
+                  builder: (context) => ProductDetailScreen(
+                    productID: productID,
+                  ),
                 ));
           },
           child: Container(
